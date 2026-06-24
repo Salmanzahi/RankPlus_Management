@@ -19,7 +19,6 @@ world.afterEvents.playerSpawn.subscribe((event)=> {
   const player = event.player
   if (!event.initialSpawn) return
 
-  // Seed default ranks when the first player joins
   RankManager.seedDefaults();
 
   let profile = playerDB.get(player.id)

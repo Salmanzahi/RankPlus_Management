@@ -24,10 +24,6 @@ export function rank(origin, rankenum) {
       case "rankui":
         showgui(player, origin);
         break;
-
-      case "edit":
-        editgui(player, origin);
-        break;
     }
       
   },);
@@ -234,13 +230,12 @@ export function setRank(player, rankId=1){
 }
 
 
-function editgui(player){
-  if (!player || player.typeId !== "minecraft:player") {
-    world.sendMessage("[Rank System] editgui: Not a player!");
-    return;
-  }
-  // reserved for future use
-}
+// function editgui(player){
+//   if (!player || player.typeId !== "minecraft:player") {
+//     world.sendMessage("[Rank System] editgui: Not a player!");
+//     return;
+//   }
+// }
 
 export function setRankCmd(origin, selector, rankId){
     system.runTimeout(() => {
