@@ -1,0 +1,31 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Rank+ Management",
+    "description": "A script based addon that utilize player rank and also some essentials feature added on this addon.",
+    "uuid": "e9a94d84-69d7-4663-a167-d0c4c8acf22e",
+    "version": "0.5.0",
+    "min_engine_version": [1, 26, 0]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "uuid": "7676189b-5c7f-4b4e-9b6c-de44ed8d4aca",
+      "version": [1, 0, 0],
+      "language": "javascript",
+      "entry": "scripts/rankup/main.js"
+    }
+  ],
+  "dependencies": [
+    { "module_name": "@minecraft/server", "version": "2.9.0-beta" },
+    { "module_name": "@minecraft/server-ui", "version": "2.0.0" }
+  ],
+  "metadata": {
+    "authors": ["Salmanzahi"],
+    "license": "MIT",
+    "url": "salmanzahi.my.id",
+    "generated_with": { "jaylydev_manifest_generator": ["1.0.0"] }
+  }
+}
+
+
