@@ -36,7 +36,7 @@ world.afterEvents.playerSpawn.subscribe((event)=> {
   }
   playerDB.set(player.id,profile)
 
-  // Update nametag to match rank
+  // Update nametag 
   const rankData = RankManager.get(String(profile.rank));
   const rankDisplay = rankData ? rankData.rank_display : `§7[UNKNOWN]§r`;
   player.nameTag = `${rankDisplay} §r${player.name}`;

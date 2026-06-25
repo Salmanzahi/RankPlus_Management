@@ -7,9 +7,7 @@ import { rank } from "./commands/rank.js";
 import { help } from './commands/help.js'
 import { setRankCmd } from './commands/rank.js'
 import { nickCmd } from "./commands/nick.js";
-// ── Handler Imports ────────────────────────────────────────────────────────
 
-// ── Simple Commands ────────────────────────────────────────────────────────
 export const commands = [
 
   {
@@ -24,13 +22,13 @@ export const commands = [
   }
 ];
 
-// ── Enums ──────────────────────────────────────────────────────────────────
+
 export const enums = [
   { name: "rankplus:rankenum",    values: [ "rankui" ] },
   { name: 'rankplus:nickenum', values:['set', 'reset'] }
 ];
 
-// ── Enum-dependent Commands ────────────────────────────────────────────────
+
 export const complexCommands = [
   {
     name: "rankplus:rank",
@@ -61,15 +59,15 @@ export const complexCommands = [
  * @param {import("@minecraft/server").CustomCommandRegistry} registry
  */
 export function registerAll(registry) {
-  // 1. Simple commands — definition + handler live in the same object
+
   commands.forEach(({ handler, ...definition }) =>
     registry.registerCommand(definition, handler),
   );
 
-  // 2. Enums (must be registered before any command that references them)
+
   enums.forEach(({ name, values }) => registry.registerEnum(name, values));
 
-  // 3. Enum-dependent commands
+
   complexCommands.forEach(({ handler, ...definition }) =>
     registry.registerCommand(definition, handler),
   );
