@@ -17,7 +17,7 @@ export function rank(origin, rankenum) {
     const isPlayer = player !== null && player.typeId === "minecraft:player";
 
     if (isPlayer && !player.hasTag('RANK2026:ADMIN')) {
-        error(player, `${c.red}You don't have permission to use this command!`);
+        error(player, `${c.red}You don't have permission to use this command! please add tag RANK2026:ADMIN TO YOUR PROFILE\n/tag @s add RANK2026:ADMIN`);
         return;
     }
     switch (rankenum) {
