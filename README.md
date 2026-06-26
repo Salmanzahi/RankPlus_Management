@@ -18,7 +18,9 @@ To make this addon more useful, this addon also feature a nickname changer.
   `for e.g: / tag @s add RANK2026:ADMIN`
 -
 - `/setrank [selector: target] [rankId: int]` Set selected entity
+- Permission: Only **GameDirectors** could use this command or the command block
 - `/nick <set|reset> [selector: target] [value: string]` Set or reset the nickname of the target entity
+- Permission: Only **GameDirectors** could use this command or the command block
 
 ### Command Example
 

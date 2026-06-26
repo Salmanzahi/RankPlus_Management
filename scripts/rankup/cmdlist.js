@@ -42,7 +42,7 @@ export const complexCommands = [
   },{
     name:'rankplus:nick',
     description: "Change player nickname !",
-    permissionLevel: CommandPermissionLevel.Any,
+    permissionLevel: CommandPermissionLevel.GameDirectors,
     mandatoryParameters: [
       {name: 'selector', type: CustomCommandParamType.EntitySelector},
       {name: 'rankplus:nickenum', type: CustomCommandParamType.Enum}

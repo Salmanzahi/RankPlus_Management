@@ -124,6 +124,11 @@ function editRank(player, rankId="", rankName="", rankDisplay=""){
   selectForm.show(player).then((r) => {
     if (r.canceled) return;
     const [selectedId, selectedData] = sorted[r.selection];
+    // const validId = RankManager.get(selectedId) 
+
+    // if(!validId) {
+    //   error('The Id')
+    // }
 
     let editForm = new ModalFormData();
     editForm.title(`§l§6Edit Rank [${selectedId}]`);
@@ -136,10 +141,12 @@ function editRank(player, rankId="", rankName="", rankDisplay=""){
       if (r2.canceled) return;
       const [newName, newDisplay] = r2.formValues;
 
-      if (!newName || !newDisplay) {
+      if (!newName || !newDisplay ) {
         error(player, `${c.red}All fields are required!`);
         return;
       }
+
+    
 
       RankManager.set(selectedId, newName, newDisplay);
       success(player, `${c.green}Successfully updated rank ${newDisplay}${c.green} (ID: ${c.yellow}${selectedId}${c.green})`);
@@ -191,12 +198,14 @@ export function setRank(player, rankId=1){
   const profileEntries = Object.entries(allProfiles); // [ [playerId, profile], ... ]
   const playerNames = profileEntries.map(([id, profile]) => profile.name ?? id);
   const rankLabels = sorted.map(([id, data]) => `${data.rank_display}§r`);
-  
+ 
 
   if (sorted.length === 0) {
     error(player, `${c.red}No ranks exist! Add a rank first.`);
     return;
   }
+
+
 
   if (profileEntries.length === 0) {
     error(player, `${c.red}No players found in database!`);
@@ -214,6 +223,9 @@ export function setRank(player, rankId=1){
     if (r.canceled) return;
     const [selectedPlayerId, selectedProfile] = profileEntries[r.formValues[0]];
     const [selectedRankId, selectedRankData] = sorted[r.formValues[1]];
+    
+
+     
 
     selectedProfile.rank = parseInt(selectedRankId);
     playerDB.set(selectedPlayerId, selectedProfile);
@@ -243,6 +255,13 @@ export function setRankCmd(origin, selector, rankId){
         const id = world.getEntity(e.id)
         const playerprofile = playerDB.get(id.id)
         const currentRankId = parseInt(playerprofile.rank)
+         const validId = RankManager.get(parseInt(rankId)) 
+          // console.log(validId)
+        if (!validId){
+            console.log('invalid Id')
+              return;
+            }
+          
         // if(currentRankId == rankId) {
         //   return SyntaxError
         // }
